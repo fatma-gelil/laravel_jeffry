@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $posts= post::all ();
-    return view('posts',['posts'=>$posts]);
+
+	//ddd ($posts->getContents());
+   return view('posts',['posts'=> post::all ()]);
 });
 
 
@@ -23,7 +24,7 @@ Route::get('posts/{post}', function ($slug) {
 	// find a post by its slug and pass it to the view called "post"
 	$post=post::find($slug);
 
-	return view('post',['post'=>post::find($slug)]);
+	return view('post',['post'=>$post::find($slug)]);
 
 
 });

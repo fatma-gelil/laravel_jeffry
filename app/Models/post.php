@@ -8,12 +8,11 @@
 
 	class post
 	{
-		public static function all()
-		{
-			$files=File::files(public_path("posts/"));
-
-			array_map(function ($file){
-				return $file->getContents();},$files);
+		public static function all(){
+			$files=File::files(public_path ("posts/"));
+			return array_map (function ($file){
+				return $file->getContents();
+			},$files);
 		}
 		public static function find($slug)
 		{
